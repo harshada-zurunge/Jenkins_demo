@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        GITHUB_CREDENTIALS = credentials('harshada-zurunge')
+        GITHUB_CREDENTIALS = credentials('bb17d395-b3ef-4709-97bc-0e2901fe0493')
     }
 
     stages {
