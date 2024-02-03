@@ -1,22 +1,33 @@
 pipeline {
     agent any
-    
-    environment {
-        GITHUB_CREDENTIALS = credentials('bb17d395-b3ef-4709-97bc-0e2901fe0493')
-    }
 
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/harshada-zurunge/Jenkins_demo.git', credentialsId: env.GITHUB_CREDENTIALS]]])
-                }
+                // Check out the source code from the GitHub repository
+                checkout scm
             }
         }
 
-        // Add more stages as needed
+        stage('Build') {
+            steps {
+                // Implement your build steps here
+                sh 'echo "Building the application"'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Implement your test steps here
+                sh 'echo "Running tests"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Implement your deployment steps here
+                sh 'echo "Deploying the application"'
+            }
+        }
     }
 }
-
-
-
